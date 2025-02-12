@@ -69,8 +69,8 @@ const Blank = () => {
         description: "Your answers have been saved ❤️",
       });
 
-      // Here you can add navigation to the next page if needed
-      // navigate('/next-page');
+      // Navigate to the messages page after successful submission
+      navigate('/messages');
       
     } catch (error) {
       console.error('Error:', error);
