@@ -114,7 +114,7 @@ const Index = () => {
                   </Card>
                   {index < timelineEvents.length - 1 && (
                     <div className="flex justify-center my-4">
-                      <Separator className="h-8 rotate-90" />
+                      <div className="w-1 h-8 bg-rose-100 rounded-full"></div>
                     </div>
                   )}
                 </motion.div>
