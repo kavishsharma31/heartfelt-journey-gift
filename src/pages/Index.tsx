@@ -19,7 +19,7 @@ const timelineEvents = [
   {
     date: "25th August 2024",
     title: "Meeting for the first time after dating",
-    image: "photo-1472396961693-142e6e269027"
+    image: "/lovable-uploads/1bf647e5-dea1-462f-b92d-4d9bfa823862.png"
   },
   {
     date: "25th October 2024",
