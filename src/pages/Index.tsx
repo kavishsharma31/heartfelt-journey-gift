@@ -14,7 +14,7 @@ const timelineEvents = [
   {
     date: "25th March 2024",
     title: "The moment I took the leap and asked you out",
-    image: "/lovable-uploads/4b2a2c31-cdf7-4829-a1c7-725567dd86e9.png"
+    image: "/lovable-uploads/bde0f35b-dafe-461a-a0bc-9f2ad7699028.png"
   },
   {
     date: "25th August 2024",
