@@ -34,7 +34,7 @@ const AfterQuiz = () => {
             </p>
             <div className="flex justify-center">
               <Button 
-                onClick={() => navigate('/quiz')}
+                onClick={() => navigate('/valentine')}
                 className="bg-rose-500 hover:bg-rose-600 text-white px-8"
               >
                 Next

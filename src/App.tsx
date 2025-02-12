@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Blank from "./pages/Blank";
 import Quiz from "./pages/Quiz";
 import AfterQuiz from "./pages/AfterQuiz";
+import Valentine from "./pages/Valentine";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/blank" element={<Blank />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/after-quiz" element={<AfterQuiz />} />
+          <Route path="/valentine" element={<Valentine />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
