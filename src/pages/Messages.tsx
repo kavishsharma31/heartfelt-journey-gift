@@ -1,11 +1,55 @@
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart } from "lucide-react";
+import { Mail, MailOpen } from "lucide-react";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
-const messages = [];
+const messages = [
+  {
+    id: 1,
+    message: "Ever since you came into my life, it has totally changed babe, all of my days are filled with your messages, my last message before sleeping is sent to you, and my first message after waking up is sent to you"
+  },
+  {
+    id: 2,
+    message: "Our spark has always been the same. I remember we instantly clicked when we met as friends, I knew that you were the one, I wanted you forever with me"
+  },
+  {
+    id: 3,
+    message: "I'm so proud of myself for asking you to go out with me on 28th October 2023. Best Decision Ever."
+  },
+  {
+    id: 4,
+    message: "The next best decision I made was asking you out on 25th March. Man the adrenaline was so high that day, I loved that night and I love you the most."
+  },
+  {
+    id: 5,
+    message: "Meeting you after that initial phase of long distance was like heaven to me. Finally getting to see you, touch you, hug you, kiss you. Everything was heavenly."
+  },
+  {
+    id: 6,
+    message: "I promise that I'll always be yours, you'll be my valentine every year from now on. NO MATTER WHAT."
+  }
+];
 
 const Messages = () => {
+  const [openEnvelopes, setOpenEnvelopes] = useState<number[]>([]);
+  const [selectedMessage, setSelectedMessage] = useState<string | null>(null);
+
+  const handleEnvelopeClick = (id: number, message: string) => {
+    if (!openEnvelopes.includes(id)) {
+      setOpenEnvelopes([...openEnvelopes, id]);
+      setSelectedMessage(message);
+    } else {
+      setSelectedMessage(message);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background py-12 px-4">
       <motion.div
@@ -16,29 +60,47 @@ const Messages = () => {
         <h1 className="text-4xl font-playfair font-bold text-center mb-12 text-gradient">
           Some Thoughts For You
         </h1>
-        <div className="space-y-6">
-          {messages.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {messages.map((item) => (
             <motion.div
-              key={item.date}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.2 }}
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              className="cursor-pointer"
+              onClick={() => handleEnvelopeClick(item.id, item.message)}
             >
-              <Card className="hover-scale">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <Heart className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="text-rose-500 font-semibold text-sm">{item.date}</p>
-                      <p className="mt-2 text-lg leading-relaxed">{item.message}</p>
-                    </div>
-                  </div>
+              <Card className="hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6 flex items-center justify-center">
+                  {openEnvelopes.includes(item.id) ? (
+                    <MailOpen className="w-12 h-12 text-rose-500" />
+                  ) : (
+                    <Mail className="w-12 h-12 text-rose-500" />
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
       </motion.div>
+
+      <Dialog open={!!selectedMessage} onOpenChange={() => setSelectedMessage(null)}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-center text-2xl font-playfair text-rose-500 mb-4">
+              A Message For You ❤️
+            </DialogTitle>
+          </DialogHeader>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center text-lg leading-relaxed p-4"
+          >
+            {selectedMessage}
+          </motion.div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
