@@ -1,9 +1,9 @@
+
 import { useState, useEffect } from "react";
 import IntroSection from "@/components/IntroSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Camera } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
 const timelineEvents = [
   {
@@ -14,7 +14,7 @@ const timelineEvents = [
   {
     date: "25th March 2024",
     title: "The moment I took the leap and asked you out",
-    image: "photo-1460925895917-afdab827c52f"
+    image: "/lovable-uploads/4b2a2c31-cdf7-4829-a1c7-725567dd86e9.png"
   },
   {
     date: "25th August 2024",
