@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Messages from "./pages/Messages";
 import NotFound from "./pages/NotFound";
+import Blank from "./pages/Blank";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/blank" element={<Blank />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

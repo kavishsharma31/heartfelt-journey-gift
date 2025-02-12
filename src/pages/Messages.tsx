@@ -1,3 +1,4 @@
+
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MailOpen } from "lucide-react";
@@ -91,7 +92,7 @@ const Messages = () => {
 
         <div className="flex justify-center">
           <Button 
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/blank')}
             className="bg-rose-500 hover:bg-rose-600 text-white px-8"
           >
             Next
