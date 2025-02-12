@@ -70,7 +70,7 @@ const Blank = () => {
       });
 
       // Navigate to the messages page after successful submission
-      navigate('/messages');
+      navigate('/blank');
       
     } catch (error) {
       console.error('Error:', error);
