@@ -1,4 +1,3 @@
-
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MailOpen } from "lucide-react";
@@ -9,6 +8,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const messages = [
   {
@@ -38,6 +39,7 @@ const messages = [
 ];
 
 const Messages = () => {
+  const navigate = useNavigate();
   const [openEnvelopes, setOpenEnvelopes] = useState<number[]>([]);
   const [selectedMessage, setSelectedMessage] = useState<string | null>(null);
 
@@ -63,7 +65,7 @@ const Messages = () => {
         <p className="text-center text-lg text-rose-500 mb-12 font-medium">
           Click on these envelopes to unlock lovely messages
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {messages.map((item) => (
             <motion.div
               key={item.id}
@@ -85,6 +87,15 @@ const Messages = () => {
               </Card>
             </motion.div>
           ))}
+        </div>
+
+        <div className="flex justify-center">
+          <Button 
+            onClick={() => navigate('/')}
+            className="bg-rose-500 hover:bg-rose-600 text-white px-8"
+          >
+            Next
+          </Button>
         </div>
       </motion.div>
 
