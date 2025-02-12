@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,6 +15,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/components/ui/use-toast";
+import { useNavigate } from "react-router-dom";
 
 const formSchema = z.object({
   firstConversation: z.string().min(1, "Please answer this question"),
@@ -28,6 +30,8 @@ const formSchema = z.object({
 });
 
 const Blank = () => {
+  const { toast } = useToast();
+  const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,9 +45,41 @@ const Blank = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-    // We'll add the submission logic later
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      const { data, error } = await supabase
+        .from('quiz_answers')
+        .insert([
+          {
+            first_conversation: values.firstConversation,
+            first_date: values.firstDate,
+            indore_mall: values.indoreMall,
+            delhi_mall: values.delhiMall,
+            first_kiss: values.firstKiss,
+            love_answer: values.loveAnswer,
+            marriage_answer: values.marriageAnswer,
+          }
+        ])
+        .select();
+
+      if (error) throw error;
+
+      toast({
+        title: "Success!",
+        description: "Your answers have been saved ❤️",
+      });
+
+      // Here you can add navigation to the next page if needed
+      // navigate('/next-page');
+      
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Error",
+        description: "There was a problem saving your answers. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
