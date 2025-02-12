@@ -4,6 +4,8 @@ import IntroSection from "@/components/IntroSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Camera } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const timelineEvents = [
   {
@@ -41,6 +43,7 @@ const timelineEvents = [
 const Index = () => {
   const [hasStarted, setHasStarted] = useState(false);
   const [showTimeline, setShowTimeline] = useState(false);
+  const navigate = useNavigate();
 
   const handleStart = () => {
     setHasStarted(true);
@@ -96,7 +99,7 @@ const Index = () => {
                       <div className="flex flex-col md:flex-row items-center gap-6">
                         <div className="w-full md:w-1/3 aspect-[4/3] bg-accent rounded-lg overflow-hidden relative group">
                           <img
-                            src={event.image.startsWith('/') ? event.image : `https://images.unsplash.com/${event.image}?auto=format&fit=crop&w=800`}
+                            src={event.image}
                             alt={event.title}
                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                           />
@@ -118,6 +121,14 @@ const Index = () => {
                   )}
                 </motion.div>
               ))}
+            </div>
+            <div className="flex justify-center mt-12">
+              <Button 
+                onClick={() => navigate('/messages')}
+                className="bg-rose-500 hover:bg-rose-600 text-white font-semibold px-8 py-4 rounded-lg text-lg"
+              >
+                Continue to Our Messages ❤️
+              </Button>
             </div>
           </motion.div>
         )}
