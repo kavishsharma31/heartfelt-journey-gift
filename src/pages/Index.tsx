@@ -24,7 +24,7 @@ const timelineEvents = [
   {
     date: "25th October 2024",
     title: "Exactly one year after we met",
-    image: "photo-1721322800607-8c38375eef04"
+    image: "/lovable-uploads/c0520120-f210-435b-b443-232b10d38c03.png"
   },
   {
     date: "19th January 2025",
