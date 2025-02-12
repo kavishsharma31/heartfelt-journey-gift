@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -28,7 +29,7 @@ const formSchema = z.object({
   marriageAnswer: z.enum(["Yes", "Yes ", "HELL YES"]),
 });
 
-const Blank = () => {
+const Quiz = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -291,4 +292,4 @@ const Blank = () => {
   );
 };
 
-export default Blank;
+export default Quiz;

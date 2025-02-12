@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Messages from "./pages/Messages";
 import NotFound from "./pages/NotFound";
 import Blank from "./pages/Blank";
+import Quiz from "./pages/Quiz";
 import AfterQuiz from "./pages/AfterQuiz";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/blank" element={<Blank />} />
+          <Route path="/quiz" element={<Quiz />} />
           <Route path="/after-quiz" element={<AfterQuiz />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
