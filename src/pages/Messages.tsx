@@ -57,9 +57,12 @@ const Messages = () => {
         animate={{ opacity: 1, y: 0 }}
         className="container mx-auto max-w-3xl"
       >
-        <h1 className="text-4xl font-playfair font-bold text-center mb-12 text-gradient">
+        <h1 className="text-4xl font-playfair font-bold text-center mb-3 text-gradient">
           Some Thoughts For You
         </h1>
+        <p className="text-center text-lg text-rose-500 mb-12 font-medium">
+          Click on these envelopes to unlock lovely messages
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {messages.map((item) => (
             <motion.div
