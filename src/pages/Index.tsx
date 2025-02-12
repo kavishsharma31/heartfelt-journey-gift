@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import IntroSection from "@/components/IntroSection";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,7 +9,7 @@ const timelineEvents = [
   {
     date: "26th-29th October 2023",
     title: "The moment my life changed",
-    image: "photo-1501854140801-50d01698950b"
+    image: "/lovable-uploads/344012fc-9d3d-455b-9e1b-3e8a09a0db26.png"
   },
   {
     date: "25th March 2024",
@@ -97,7 +96,7 @@ const Index = () => {
                       <div className="flex flex-col md:flex-row items-center gap-6">
                         <div className="w-full md:w-1/3 aspect-[4/3] bg-accent rounded-lg overflow-hidden relative group">
                           <img
-                            src={`https://images.unsplash.com/${event.image}?auto=format&fit=crop&w=800`}
+                            src={event.image.startsWith('/') ? event.image : `https://images.unsplash.com/${event.image}?auto=format&fit=crop&w=800`}
                             alt={event.title}
                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                           />
