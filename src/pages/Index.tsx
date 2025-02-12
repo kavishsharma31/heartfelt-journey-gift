@@ -34,7 +34,7 @@ const timelineEvents = [
   {
     date: "25th March 2025",
     title: "One Year Anniversary- upcoming event",
-    image: "photo-1581091226825-a6a2a5aee158"
+    image: "/lovable-uploads/c8bab8fb-9e93-442d-b68b-a55e82a6835b.png"
   }
 ];
 
