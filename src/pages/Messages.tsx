@@ -3,20 +3,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart } from "lucide-react";
 
-const messages = [
-  {
-    date: "October 29, 2023",
-    message: "Hey! Remember when we first started talking? Those late night conversations about life, dreams, and everything in between..."
-  },
-  {
-    date: "March 25, 2024",
-    message: "The day I gathered all my courage to ask you out. My heart was racing, but it was the best decision I ever made! ❤️"
-  },
-  {
-    date: "August 25, 2024",
-    message: "Our first meeting was magical. All those months of waiting were worth it just to see your beautiful smile in person! 🥰"
-  }
-];
+const messages = [];
 
 const Messages = () => {
   return (
@@ -27,7 +14,7 @@ const Messages = () => {
         className="container mx-auto max-w-3xl"
       >
         <h1 className="text-4xl font-playfair font-bold text-center mb-12 text-gradient">
-          Our Special Messages
+          Some Thoughts For You
         </h1>
         <div className="space-y-6">
           {messages.map((item, index) => (
