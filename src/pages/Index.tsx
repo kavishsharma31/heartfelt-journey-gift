@@ -29,7 +29,7 @@ const timelineEvents = [
   {
     date: "19th January 2025",
     title: "When I sneaked into IIM Rohtak for your birthday",
-    image: "photo-1487058792275-0ad4aaf24ca7"
+    image: "/lovable-uploads/cdebdbb6-2e38-4d97-81da-71973f327440.png"
   },
   {
     date: "25th March 2025",
