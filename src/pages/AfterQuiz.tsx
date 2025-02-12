@@ -1,7 +1,11 @@
 
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const AfterQuiz = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background py-12 px-4">
       <motion.div
@@ -28,6 +32,14 @@ const AfterQuiz = () => {
             <p className="text-2xl md:text-3xl font-playfair leading-relaxed text-rose-500 mt-8">
               You are going to be my ghar ki lakshmi. I&apos;m gonna marry you and I&apos;m gonna give you all the happiness in the world.
             </p>
+            <div className="flex justify-center">
+              <Button 
+                onClick={() => navigate('/messages')}
+                className="bg-rose-500 hover:bg-rose-600 text-white px-8"
+              >
+                Next
+              </Button>
+            </div>
           </motion.div>
         </div>
       </motion.div>
