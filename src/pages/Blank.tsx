@@ -69,8 +69,8 @@ const Blank = () => {
         description: "Your answers have been saved ❤️",
       });
 
-      // Navigate to the messages page after successful submission
-      navigate('/blank');
+      // Navigate to the new blank page after successful submission
+      navigate('/after-quiz');
       
     } catch (error) {
       console.error('Error:', error);
